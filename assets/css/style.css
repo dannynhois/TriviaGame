@@ -1,4 +1,21 @@
+body {
+  height: 100%;
+}
+
+.container {
+  margin-top: 10%;
+  background: rgba(159, 168, 186, 0.72);
+  height: 80%;
+  min-height: 500px;
+}
+
 
 .main {
   background-color: red;
+}
+
+.btn {
+  /*display: block;*/
+  width: 75%;
+  margin: 2% auto;
 }
