@@ -21,7 +21,6 @@ function newGame () {
     .then(function (response) {
       response.json().then(function (data) {
         questions = data.results;
-        console.log(questions);
         displayQuestion(questions[currentQuestion]);
       });
     });
@@ -39,7 +38,6 @@ function displayQuestion (question) {
   timerQuestion = setInterval(() => {
     timeRemaining--;
     divTime.innerHTML = 'Time remaining: ' + timeRemaining;
-    console.log(timeRemaining);
     if (timeRemaining === 0) {
       // checkanswer passing null
       checkAnswer();
@@ -48,12 +46,9 @@ function displayQuestion (question) {
 
   // create random position for correct answer
   var random = Math.floor(Math.random() * question.incorrect_answers.length);
-  console.log('random: ', random);
 
   // create new array full of answers
   question.incorrect_answers.splice(random,0,question.correct_answer);
-  // question.answers = question.incorrect_answers.splice(random,0,question.correct_answer);
-  // console.log('answer list: ',question.answers);
 
   // display question
   var html = '<div class="question">#'+ (currentQuestion+1) + '. ' + question.question + '</div>';
