@@ -7,8 +7,10 @@ html, body {
 .container {
   margin-top: 3%;
   height: 80%;
-  border-radius: 30px;
+  /*border-radius: 30px;*/
   background-color: rgb(176, 176, 176);
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.5);
 }
 
 .btn {
@@ -95,4 +97,12 @@ h1 {
 #comments {
   width: 100%;
   margin-top:10%;
+}
+
+.answer:active:focus {
+  outline:none;
+  text-decoration: none;
+}
+.answer:focus {
+  outline:0;
 }
