@@ -1,6 +1,7 @@
 html, body {
   height: 100%;
   background-color: rgb(255, 255, 255);
+  background-image: url('http://www.no-zaku.com/background/wp-content/uploads/sites/9/2016/11/Fresh-Website-Background-Image.jpg');
 }
 
 .container {
