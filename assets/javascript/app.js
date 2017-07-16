@@ -20,7 +20,22 @@ var divComments = document.getElementById('comments');
 document.getElementById('start-button').addEventListener('click', newGame);
 
 function newGame () {
-  document.getElementById('start-button').remove();
+  // remove start button
+  anime({
+    targets: '.answer',
+    translateY: 200,
+    direction: 'normal',
+    duration: 2000,
+    rotate: {
+      value: 360,
+      duration: 1000,
+      easing: 'easeInOutSine'
+    },
+    complete: function(anim){
+      document.getElementById('start-button').remove();
+    }
+  });
+
   // get new set of questions
   fetch(url)
     .then(function (response) {
@@ -59,6 +74,15 @@ function displayQuestion (question) {
   // create new array full of answers
   question.incorrect_answers.splice(random, 0, question.correct_answer);
 
+  // slide in animation for start of quetions
+  if(currentQuestion===0){
+    anime({
+      targets: '#choices, #question',
+      translateX: 1000,
+      direction: 'reverse',
+      duration: 3000
+    });
+  }
   // display question
   divQuestion.innerHTML = '#' + (currentQuestion + 1) + '. ' + question.question + '';
   // display answers
@@ -67,6 +91,7 @@ function displayQuestion (question) {
     html = html + '<button class="answer btn btn-lg" value="' + (index === random ? 1 : 0) + '" onclick="checkAnswer(value, this)">' + answer + '</button>';
   });
   divChoices.innerHTML = html;
+
 }
 
 function checkAnswer (guess, button) {
